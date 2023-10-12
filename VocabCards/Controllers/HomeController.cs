@@ -16,8 +16,8 @@ namespace VocabCards.Controllers
 
 		public IActionResult Index()
 		{
-			RandomWordAPIController wordGrabber = new RandomWordAPIController();
-			string word = wordGrabber.Get().ToString() ?? "BrokenAPI";
+			RandomWordAPI wordGrabber = new RandomWordAPI();
+			string word = wordGrabber.GetWord().ToString() ?? "BrokenAPI";
 			return View(word);
 		}
 
