@@ -1,4 +1,7 @@
-﻿namespace VocabCards.Access
+﻿using System.Text.Json;
+using VocabCards.DataModels;
+
+namespace VocabCards.Access
 {
 	public class RandomWordAPI
 	{
@@ -13,7 +16,8 @@
 				if (response.IsSuccessStatusCode)
 				{
 					var word = await response.Content.ReadAsStringAsync();
-					return word;
+					var deserializedWord = JsonSerializer.Deserialize<RandomWord>(word);
+					return deserializedWord.Word;
 				}
 				return null;
 			}
