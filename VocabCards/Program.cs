@@ -1,4 +1,4 @@
-﻿using VocabCards.Access;
+using VocabCards.Access;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
