@@ -16,8 +16,9 @@ namespace VocabCards.Access
 				if (response.IsSuccessStatusCode)
 				{
 					var word = await response.Content.ReadAsStringAsync();
-					var deserializedWord = JsonSerializer.Deserialize<RandomWord>(word);
-					return deserializedWord.Word;
+					//var deserializedWord = JsonSerializer.Deserialize<RandomWord>(word);
+					//return deserializedWord.Word;
+					return word;
 				}
 				return null;
 			}
@@ -25,6 +26,11 @@ namespace VocabCards.Access
 			{
 				throw;
 			}
+		}
+
+		public string ReturnWord()
+		{
+			return "test";
 		}
 	}
 }

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using VocabCards.Access;
+using VocabCards.DataModels.ViewModels;
 using VocabCards.Models;
 
 namespace VocabCards.Controllers
@@ -18,7 +19,9 @@ namespace VocabCards.Controllers
 		{
 			RandomWordAPI wordGrabber = new RandomWordAPI();
 			string word = wordGrabber.GetWord().ToString() ?? "BrokenAPI";
-			return View(word);
+			WordViewModel model = new WordViewModel();
+			model.Word = word;
+			return View(model);
 		}
 
 		public IActionResult Privacy()
